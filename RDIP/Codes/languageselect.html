@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>
+var a="Form a sentence (Declarative or Interrogative or any other type) from the given words<br />(select the buttons in proper order)";
+function checkvalue(val)
+{
+if (val=="select")
+{
+	alert("Select language");
+}
+if(val=="english" || val=="hindi")
+{
+document.getElementById('selectlang').innerHTML=a;
+}
+}
+</script>
+<body>
+<div align="center">
+<select name='selectlang' onchange='checkvalue(this.value)'>
+<option value="select">---Select an Language---</option>
+<option value="english" >English</option>
+<option value="hindi" >Hindi</option>
+</select>
+<p name="selectlang" id="selectlang" style="color:blue"" ></p>
+</div>
+</body>
+</html>
