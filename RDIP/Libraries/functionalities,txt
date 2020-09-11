@@ -1,0 +1,11 @@
+Functionalities Of Simulation
+1. The resultant sentence should always be hidden until the user selects to reveal the answer that is, by clicking on Get correct sentence button.
+2. Whenever the user tries to select English and Hindi randomly, new sentences should be coming everytime and  they should not be repeatative.
+3. The words that are selected by the user should be displayed in the order they are actually selected.
+4. Once you select any language and if you again select on Select language option from the dropdown menu everything that are displayed before that should be disappeared
+4. The sentence that is formed by the user should exactly match the correct sentence then only the output should be right answer.
+5. All the buttons should function as per their functionality.
+6. The dropdown with the options English, Hindi, and Select Language should be selective. 
+8. Always the words should be in jumbled order and every word should able to get selected individually.
+9. The Code should be able to run on any browser and on any operating system
+10.The reform sentence button at any moment returns how many ever words you have chosen back to the jumbled order. This button basically acts as a reset button.
