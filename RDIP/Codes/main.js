@@ -28,9 +28,14 @@ var desc3 = document.getElementById('desc3');
 var desc4 = document.getElementById('desc4');
 var sentence = document.getElementById('statement');
 var reform = document.getElementById('form');
+var correctness = document.getElementById('correctnesspara');
+var res = document.getElementById('result');
+var correctanswers = document.getElementById('correctansp');
 var j,btncount;
 var finalsentence ="";
 var clickcount = 0;
+var x;
+var answers = '';
 function random(jumbled){
 	var jumble = jumbled.split(" ");
 	var i = jumble.length, temp, randomi;
@@ -43,6 +48,55 @@ function random(jumbled){
 	}
 	return jumble;
 }
+function getcorrecttoggle() {
+  correctanswers.style.display = '';
+  res.innerHTML =
+    "<center><font color = 'red'>Wrong Answer!!!</font><br><button id='showansbtn' onclick='hidecorrect()'>Hide correct sentence</button></center>";
+}
+function hidecorrect() {
+  res.innerHTML =
+    "<center><font color = 'red'>Wrong Answer!!!</font><br><button id='showansbtn' onclick='getcorrecttoggle()'>Get answers</button></center>";
+  correctanswers.style.display = 'none';
+}
+function getcorrect() {
+  answers = '';
+  var totalanswers = 0;
+  correctanswers.innerHTML = '';
+  if (x == 'english') {
+    totalanswers = eng[r].length - 1;
+    res.innerHTML =
+      "<center><font color = 'red'>Wrong Answer!!!</font><br><button id='showansbtn' onclick='hidecorrect()'>Hide correct sentence</button></center>";
+    for (i = 0; i <= totalanswers; i++) {
+      answers += '<center>' + eng[r][i] + '<br></center>';
+    }
+    correctanswers.style.display = '';
+    correctanswers.innerHTML = answers;
+  } else if (x == 'hindi') {
+    totalanswers = hin[r].length - 1;
+    res.innerHTML =
+      "<center><font color = 'red'>Wrong Answer!!!</font><br><button id='showansbtn' onclick='hidecorrect()'>Hide correct sentence</button></center>";
+    for (i = 0; i <= totalanswers; i++) {
+      answers += '<center>' + hin[r][i] + '<br></center>';
+    }
+    correctanswers.style.display = '';
+    correctanswers.innerHTML = answers;
+  }
+}
+function correctioncheck() {
+  var fs = finalsentence.trim();
+  var result;
+  correctanswers.innerHTML = '';
+  //answers="";
+  if (x == 'english') result = eng[r].includes(fs);
+  else if (x == 'hindi') result = hin[r].includes(fs);
+
+  if (result == true)
+    res.innerHTML =
+      "<center><font color = 'green'>Right Answer!!!</font></center>";
+  else
+    res.innerHTML =
+      "<center><font color = 'red'>Wrong Answer!!!</font><br><button id='showansbtn' onclick='getcorrect()'>Get correct sentence</button></center>";
+}
 function reformsent(){
 	for(i=0;i<=j.length-1;i++){
 		document.getElementById('btn'+i).style.display = "";
@@ -51,6 +105,12 @@ function reformsent(){
 	sentence.innerHTML = finalsentence;
 	reform.innerHTML = "";
 	desc4.innerHTML = "";
+	  correctness.innerHTML = '';
+	  clickcount = 0;
+  res.innerHTML = '';
+   answers = '';
+    correctanswers.innerHTML = '';
+
 }
 
 
@@ -63,11 +123,17 @@ function formsent(id,value){
 	document.getElementById(id).style.display = "none";
 	reform.innerHTML = "<center><button id='refornbtn' onclick='reformsent()'>Re-form the sentence</button></center>"
 	clickcount++;
+	if (btncount == clickcount) {
+    correctness.innerHTML =
+      "<center><button id='correctnessbtn' onclick='correctioncheck()'>Check the correctness of this sentence</button></center>";
+  }
 }
 
 function dropdownchange(){
 	var x = document.getElementById('lang').value;
 	if(x == 'select'){
+		 answers = '';
+    correctanswers.innerHTML = '';
 		clickcount = 0;
 		btncount = 0;
 		seldesc.innerHTML = "";
@@ -77,13 +143,20 @@ function dropdownchange(){
 		desc4.style.textAlign = "left";
 		sentence.innerHTML = "";
 		reform.innerHTML = "";
+		correctness.innerHTML = '';
+		res.innerHTML = '';
+
 
 	}
 	if(x == 'english'){
+		 answers = '';
+    correctanswers.innerHTML = '';
 		reform.innerHTML = "";
 		sentence.innerHTML = "";
+		correctness.innerHTML = '';
 		desc4.innerHTML = "";
 		finalsentence = "";
+		res.innerHTML = '';
 		seldesc.innerHTML = "<br><br><b><center>Form a sentence (Declarative or Interrogative or any other type) from the given words</center></b>";
 		desc3.style.color = "blue";
 		desc3.innerHTML = "<center><i>(select the buttons in proper order)</i></center>"
@@ -104,10 +177,14 @@ function dropdownchange(){
 		desc2.innerHTML = bs.trim();
 	}
 	if(x == 'hindi'){
+		 answers = '';
+    correctanswers.innerHTML = '';
 		reform.innerHTML = "";
 		sentence.innerHTML = "";
+	    correctness.innerHTML = '';
 		desc4.innerHTML = "";
 		finalsentence = "";
+		res.innerHTML = '';
 		seldesc.innerHTML = "<br><br><b><center>Form a sentence (Declarative or Interrogative or any other type) from the given words<center></b>";
 		desc3.style.color = "blue";
 		desc3.innerHTML = "<center><i>(select the buttons in proper order)</i></center>"
@@ -141,5 +218,9 @@ function experiment(){
 	desc4.style.textAlign = "left";
 	sentence.innerHTML = "";
 	reform.innerHTML = "";
+	correctness.innerHTML = '';
+	res.innerHTML = '';
+	answers = '';
+  correctanswers.innerHTML = '';
 }
 
