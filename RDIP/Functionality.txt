@@ -1,0 +1,12 @@
+1) Types are the number of unique or unrepeated words that are present in a sentence
+2) Tokens are the number of words that are present in a sentence 
+3) After answering the number of tokens and types tokens and types box should be highlighted
+4) If the submitted answer is correct then the answered box need to turn green and should print "Right answer"
+5) If the submitted answer is wrong the answered box need to turn red and should print "Wrong answer"
+6) If it is a wrong answer the user can know the answer if the text are highlighted based on tokens and types with different colours.
+7) The paragraph or sentences should change randomly everytime we run the code
+8) In order to avoid confusion in counting the number of types there need to be an option to highlight the repeated word.
+9) The submit button need to check and give the answers of both number of types and tokens at the same time.
+10)The website should always be simple and responsive
+11)There should 3 different corpus available to the user
+12)We have to use snowball stemmer to simulate this experiment
