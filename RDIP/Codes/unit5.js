@@ -9,8 +9,55 @@ var description = document.getElementById('desc');
 var corpuscontent = document.getElementById('content');
 var answer = document.getElementById('solution');
 var submit = document.getElementById('submit');
-var manswer = document.getElementById('answer');
+var nanswer = document.getElementById('answer');
 var x, wordcount, uniquewordcount, newtypecount;
+
+function comparenewtype(l) {
+  var f = isNaN(newtypecount);
+  if (f) {
+    alert('Please enter a valid number as input');
+    return;
+  }
+  if (l == newtypecount) {
+    document.getElementById('newtypeinput').style.backgroundColor = 'Green';
+    nanswer.innerHTML =
+      "<center><font color='Green' size='5px'>Right Answer</center>";
+  } else {
+    document.getElementById('newtypeinput').style.backgroundColor = 'Red';
+    nanswer.innerHTML =
+      "<center><font color='Red' size='5px'>Wrong Answer</center>";
+  }
+}
+
+function verification() {
+  var tokens = document.getElementById('tokeninput').value;
+  var types = document.getElementById('typeinput').value;
+  var f1 = isNaN(tokens);
+  var f2 = isNaN(types);
+  if (f1 || f2) {
+    alert('Please enter a valid number in both the input');
+    return;
+  }
+  if (wordcount == tokens) {
+    document.getElementById('tokeninput').style.backgroundColor = 'Green';
+  } else {
+    document.getElementById('tokeninput').style.backgroundColor = 'Red';
+  }
+
+  if (uniquewordcount == types) {
+    document.getElementById('typeinput').style.backgroundColor = 'Green';
+  } else {
+    document.getElementById('typeinput').style.backgroundColor = 'Red';
+  }
+  if (wordcount == tokens && uniquewordcount == types) {
+    answer.innerHTML =
+      "<center><font color='Green' style = 'font-size:20px'>Right answer</font><br><br><button id='continue' onclick='continuebtn()'>Continue</button></center>";
+  } else {
+    answer.innerHTML =
+      "<center><font color='Red' style = 'font-size:20px'>Wrong answer</font></center>";
+  }
+}
+
 
 function drop() {
   x = '';
@@ -23,7 +70,7 @@ function drop() {
       corpus[0] +
       '<br><br><center>Enter the number of tokens and types for the above corpus:<table cellspacing = "-2" style="text-align:center;"><tr><td>#tokens: </td><td><input type="text" id="tokeninput" size="5"></td></tr><tr><td>#types: </td><td><input type="text" id="typeinput" size="5"></td></tr></table><br></center>';
     submit.innerHTML =
-      '<center><button id="submit" value="Submit" onclick="verify()">Submit</button></center>';
+      '<center><button id="submit" value="Submit" onclick="verification()">Submit</button></center>';
     var pattern = /[^a-zA-Z ]/g;
     var str = corpus[0];
     var s1 = str.toLowerCase();
@@ -33,14 +80,14 @@ function drop() {
     var uniquewords = new Set(s2);
     uniquewordcount = uniquewords.size; //***//
     answer.innerHTML = '';
-    manswer.innerHTML = '';
+    nanswer.innerHTML = '';
   }
   if (x == 'corpus2') {
     corpuscontent.innerHTML =
       corpus[1] +
       '<br><br><center>Enter the number of tokens and types for the above corpus:<table cellspacing = "-2" style="text-align:center;"><tr><td>#tokens: </td><td><input type="text" id="tokeninput" size="5"></td></tr><tr><td>#types: </td><td><input type="text" id="typeinput" size="5"></td></tr></table><br></center>';
     submit.innerHTML =
-      '<center><button id="submit" value="Submit" onclick="verify()">Submit</button></center>';
+      '<center><button id="submit" value="Submit" onclick="verification()">Submit</button></center>';
     var pattern = /[^a-zA-Z ]/g;
     var str = corpus[1];
     var s1 = str.toLowerCase();
@@ -50,14 +97,14 @@ function drop() {
     var uniquewords = new Set(s2);
     uniquewordcount = uniquewords.size; //***//
     answer.innerHTML = '';
-    manswer.innerHTML = '';
+    nanswer.innerHTML = '';
   }
   if (x == 'corpus3') {
     corpuscontent.innerHTML =
       corpus[2] +
       '<br><br><center>Enter the number of tokens and types for the above corpus:<table cellspacing = "-2" style="text-align:center;"><tr><td>#tokens: </td><td><input type="text" id="tokeninput" size="5"></td></tr><tr><td>#types: </td><td><input type="text" id="typeinput" size="5"></td></tr></table><br></center>';
     submit.innerHTML =
-      '<center><button id="submit" value="Submit" onclick="verify()">Submit</button></center>';
+      '<center><button id="submit" value="Submit" onclick="verification()">Submit</button></center>';
     var pattern = /[^a-zA-Z ]/g;
     var str = corpus[2];
     var s1 = str.toLowerCase();
@@ -67,7 +114,7 @@ function drop() {
     var uniquewords = new Set(s2);
     uniquewordcount = uniquewords.size; //***//
     answer.innerHTML = '';
-    manswer.innerHTML = '';
+    nanswer.innerHTML = '';
   }
 }
 function exp() {
