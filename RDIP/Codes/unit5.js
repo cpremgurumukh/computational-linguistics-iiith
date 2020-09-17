@@ -6,13 +6,13 @@ var corpus = [
 
 var subheading = document.getElementById('head');
 var description = document.getElementById('desc');
-var corpuscontent = document.getElementById('content');
-var answer = document.getElementById('solution');
-var submit = document.getElementById('submit');
+var corpuscontent = document.getElementById('corpus');
+var answer = document.getElementById('ans');
+var submit = document.getElementById('sub');
 var nanswer = document.getElementById('answer');
 var x, wordcount, uniquewordcount, newtypecount;
 
-function comparenewtype(l) {
+function compare(l) {
   var f = isNaN(newtypecount);
   if (f) {
     alert('Please enter a valid number as input');
@@ -29,7 +29,55 @@ function comparenewtype(l) {
   }
 }
 
-function verification() {
+function stem() {
+  newtypecount = document.getElementById('newtypeinput').value;
+  var stemstring = '';
+  if (x == 'corpus1') stemstring = corpus[0];
+  if (x == 'corpus2') stemstring = corpus[1];
+  if (x == 'corpus3') stemstring = corpus[2];
+
+  stemstring = stemstring.replace(/[^a-zA-Z ]/g, '');
+  stemstring = stemstring.toLowerCase();
+  var stemstring1 = stemstring.split(' ');
+  var str = [];
+  var j = 0;
+  for (i = 0; i < stemstring1.length; i++) {
+    if (
+      stemstring1[i] == 'the' ||
+      stemstring1[i] == 'of' ||
+      stemstring1[i] == 'to' ||
+      stemstring1[i] == 'very' ||
+      stemstring1[i] == 'does' ||
+      stemstring1[i] == 'off' ||
+      stemstring1[i] == 'me' ||
+      stemstring1[i] == 'you' ||
+      stemstring1[i] == 'up' ||
+      stemstring1[i] == 'can' ||
+      stemstring1[i] == 'than' ||
+      stemstring1[i] == 'did'
+    ) {
+      continue;
+    } else {
+      stemmer.setCurrent(stemstring1[i]);
+      stemmer.stem();
+      str[j] = stemmer.getCurrent();
+      j++;
+    }
+  }
+  str = new Set(str);
+  str = Array.from(str);
+  comparenewtype(str.length);
+}
+
+function continuebtn() {
+  submit.innerHTML =
+    "<br><center>Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types.<br><br>#new types:<br><input type='text' id='newtypeinput'></center>";
+  answer.innerHTML =
+    "<center><button id='submit1' value='Submit' onclick='stem()'>Submit</button></center>";
+}
+
+
+function verify() {
   var tokens = document.getElementById('tokeninput').value;
   var types = document.getElementById('typeinput').value;
   var f1 = isNaN(tokens);
@@ -70,7 +118,7 @@ function drop() {
       corpus[0] +
       '<br><br><center>Enter the number of tokens and types for the above corpus:<table cellspacing = "-2" style="text-align:center;"><tr><td>#tokens: </td><td><input type="text" id="tokeninput" size="5"></td></tr><tr><td>#types: </td><td><input type="text" id="typeinput" size="5"></td></tr></table><br></center>';
     submit.innerHTML =
-      '<center><button id="submit" value="Submit" onclick="verification()">Submit</button></center>';
+      '<center><button id="submit" value="Submit" onclick="verify()">Submit</button></center>';
     var pattern = /[^a-zA-Z ]/g;
     var str = corpus[0];
     var s1 = str.toLowerCase();
@@ -87,7 +135,7 @@ function drop() {
       corpus[1] +
       '<br><br><center>Enter the number of tokens and types for the above corpus:<table cellspacing = "-2" style="text-align:center;"><tr><td>#tokens: </td><td><input type="text" id="tokeninput" size="5"></td></tr><tr><td>#types: </td><td><input type="text" id="typeinput" size="5"></td></tr></table><br></center>';
     submit.innerHTML =
-      '<center><button id="submit" value="Submit" onclick="verification()">Submit</button></center>';
+      '<center><button id="submit" value="Submit" onclick="verify()">Submit</button></center>';
     var pattern = /[^a-zA-Z ]/g;
     var str = corpus[1];
     var s1 = str.toLowerCase();
@@ -104,7 +152,7 @@ function drop() {
       corpus[2] +
       '<br><br><center>Enter the number of tokens and types for the above corpus:<table cellspacing = "-2" style="text-align:center;"><tr><td>#tokens: </td><td><input type="text" id="tokeninput" size="5"></td></tr><tr><td>#types: </td><td><input type="text" id="typeinput" size="5"></td></tr></table><br></center>';
     submit.innerHTML =
-      '<center><button id="submit" value="Submit" onclick="verification()">Submit</button></center>';
+      '<center><button id="submit" value="Submit" onclick="verify()">Submit</button></center>';
     var pattern = /[^a-zA-Z ]/g;
     var str = corpus[2];
     var s1 = str.toLowerCase();
