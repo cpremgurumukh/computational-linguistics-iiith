@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <title></title>
-    <script defer src="1.js"></script>
-   
+    <script defer src="unit5.js"></script>
+    <script src="../Libraries/require.js"></script>
+    <script src="../Libraries/node_modules/snowball/stemmer/lib/Snowball.min.js"></script>
     <meta
       content="text/html; 
   charset=utf-8"
@@ -11,28 +12,89 @@
     />
   </head>
   <body>
-    
+    <div class="img">
+      <img src="http://cl-iiith.vlabs.ac.in/images/logo.jpg" />
+    </div>
+    <div class="head">
+      <h2 id="heading">
+        <a href="http://cl-iiith.vlabs.ac.in/index.html"
+          >COMPUTATIONAL LINGUISTICS LAB</a
+        >
+      </h2>
+    </div>
+    <div class="nav">
+      <ul>
+        <li>
+          <a href="http://cl-iiith.vlabs.ac.in/index.html">Home</a
+          >&nbsp;&nbsp;>&nbsp;
+        </li>
+        <li>
+          <a href="http://cl-iiith.vlabs.ac.in/index.html"
+            >Computational Linguistics Lab</a
+          >&nbsp;&nbsp;>&nbsp;
+        </li>
+        <li>
+          <a
+            href="file:///C:/Users/55sup/Desktop/Project%20RDIP/computational-linguistics-iiith/RDIP/Codes/twoindex.html"
+            >Tokens and Types</a
+          >
+        </li>
+      </ul>
+    </div>
     <div class="middle">
       <h1 id="mainhead">Tokens and Types</h1>
       <div class="innermiddle">
         <ul id="innerul">
-          
-            
-            
-            
+          <button
+            class="mainbtns"
+            id="introbtn"
+            onclick="return !!(clearf() & intro())"
+          >
+            <img
+              src="../../src/lab/images/introduction.jpg"
+            /><br />INTRODUCTION
+          </button>
+          <button
+            class="mainbtns"
+            id="theorybtn"
+            onclick="return !!(clearf() & theory())"
+          >
+            <img src="../../src/lab/images/theory.jpg" /><br />THEORY
+          </button>
+          <button
+            class="mainbtns"
+            id="objectivebtn"
+            onclick="return !!(clearf() & objective())"
+          >
+            <img src="../../src/lab/images/objective.jpg" /><br />OBJECTIVE
+          </button>
           <button
             class="mainbtns"
             id="experimentbtn"
-            onclick="return !!( exp())"
+            onclick="return !!(clearf() & experiment())"
           >
             <img src="../../src/lab/images/simulation.jpg" /><br />EXPERIMENT
           </button>
-          
-           
+          <button
+            class="mainbtns"
+            id="quizzesbtn"
+            onclick="return !!(clearf() & quiz())"
+          >
+            <img src="../../src/lab/images/quizzes.jpg" /><br />QUIZZES
+          </button>
+          <button
+            class="mainbtns"
+            id="procedurebtn"
+            onclick="return !!(clearf() & procedure())"
+          >
+            <img src="../../src/lab/images/procedure.jpg" /><br />PROCEDURE
+          </button>
         </ul>
         <div class="content">
-          <p id="head"></p>
+          <p id="head">Introduction</p>
           <p id="desc">
+            Tokens correspond to the total number of word counts in a text while
+            type corresponds to the total count of unique words in a text.
           </p>
           <center>
             <br /><br /><img
