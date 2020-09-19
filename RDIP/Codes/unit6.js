@@ -14,14 +14,16 @@ var corpus = [
     '??? ?? ????? ??? ???',
   ],
 ];
+
+
 var subheading = document.getElementById('head');
 var description = document.getElementById('desc');
-var langcontent = document.getElementById('content');
-var contenttable = document.getElementById('contenttab');
+var langcontent = document.getElementById('cont');
+var contenttable = document.getElementById('conten');
 var submit = document.getElementById('sub');
 var x;
 
-function clearfields() {
+function clr() {
   subheading.innerHTML = '';
   description.innerHTML = '';
   langcontent.innerHTML = '';
@@ -45,7 +47,7 @@ function theory() {
     extra +
     '<table id="table1"><tr><th>POS</th><th>FUNCTION</th><th>EXAMPLE</th></tr><tr><td>Verb</td><td>action or state</td><td>take, eat, ??, ????, ???</td></tr><tr><td>Noun</td><td>naming word; person or thing</td><td>table, John, honesty, ???, ??????, ??????</td></tr><tr><td>Pronoun</td><td>replaces noun</td><td>he, she, you, ???, ??</td></tr><tr><td>Determiner</td><td>occurs before noun or noun phrase</td><td>the, many, all</td></tr><tr><td>Adjective</td><td>describes noun</td><td>green, big, ????, ??????, ????</td></tr><tr><td>Adverb</td><td>describes verb</td><td>naturally, slowly,????, ?????</td></tr><tr><td>Preposition</td><td>joins noun to other POS</td><td>in,of, about</td></tr><tr><td>Postposition</td><td>joins noun to other POS</td><td>???, ??, ?? ???</td></tr><tr><td>Conjunction</td><td>joins two words, phrases, sentences</td><td>but, so, ??, ??</td></tr><tr><td>Interjection</td><td>express emotion or surprise followed by exclamation marks</td><td>Hello!, Hurray!, ???!</td></tr></table></ul>';
 }
-function objective() {
+function obj() {
   description.style.fontSize = '16px';
   subheading.innerHTML = 'Objective';
   document.getElementById('image1').style.display = 'none';
@@ -63,7 +65,7 @@ function createtable(corpusstring) {
       rows +=
         '<tr><td>' +
         corpusS1[i] +
-        "</td><td><select><option value = 'Noun'>Noun</option><option value = 'Pronoun'>Pronoun</option><option value = 'Verb'>Verb</option><option value = 'Adjective'>Adjective</option><option value = 'Adverb'>Adverb</option><option value = 'Determiner'>Determiner</option><option value = 'Preposition'>Preposition</option><option value = 'Conjunction'>Conjunction</option><option value = 'Interjection'>Interjection</option></select></td><td></td><td></td></tr>";
+        "</td><td><select><option value = 'Noun' selected>Noun</option><option value = 'Pronoun'>Pronoun</option><option value = 'Verb'>Verb</option><option value = 'Adjective'>Adjective</option><option value = 'Adverb'>Adverb</option><option value = 'Determiner'>Determiner</option><option value = 'Preposition'>Preposition</option><option value = 'Conjunction'>Conjunction</option><option value = 'Interjection'>Interjection</option></select></td><td></td><td></td></tr>";
     }
   } else if (x == 'hindi') {
     rows = '';
@@ -71,15 +73,17 @@ function createtable(corpusstring) {
       rows +=
         '<tr><td>' +
         corpusS1[i] +
-        "</td><td><select><option value = 'Noun'>Noun</option><option value = 'Pronoun'>Pronoun</option><option value = 'Verb'>Verb</option><option value = 'Adjective'>Adjective</option><option value = 'Adverb'>Adverb</option><option value = 'Postposition'>Postposition</option><option value = 'Conjunction'>Conjunction</option><option value = 'Interjection'>Interjection</option></select></td><td></td><td></td></tr>";
+        "</td><td><select><option value = 'Noun' selected>Noun</option><option value = 'Pronoun'>Pronoun</option><option value = 'Verb'>Verb</option><option value = 'Adjective'>Adjective</option><option value = 'Adverb'>Adverb</option><option value = 'Postposition'>Postposition</option><option value = 'Conjunction'>Conjunction</option><option value = 'Interjection'>Interjection</option></select></td><td></td><td></td></tr>";
     }
   }
   contenttable.innerHTML =
     '<center><table><tr><th>LEXICON</th><th>POS</th><th></th><th></th></tr><tr></td></tr>' +
     rows +
     '</table></center>';
+  submit.innerHTML = "<center><br><button id='submit'>Submit</button></center>";
 }
-function content(id) {
+
+function showcontent(id) {
   contenttable.innerHTML =
     "<center><br><i><font color='Blue'>Select the POS tag for corresponding words</font></i><br></center>";
   var sentence = '';
@@ -120,6 +124,7 @@ function content(id) {
     }
   }
 }
+
 function drop() {
   x = '';
   x = document.getElementById('lang').value;
@@ -128,8 +133,9 @@ function drop() {
   }
   if (x == 'english') {
     contenttable.innerHTML = '';
+    submit.innerHTML = '';
     langcontent.innerHTML =
-      "<center><select id='eng' onchange = 'content(this.id)'><option value='engselect'>---Select a sentence---</option><option value='english1'>" +
+      "<center><select id='eng' onchange = 'showcontent(this.id)'><option value='engselect'>---Select a sentence---</option><option value='english1'>" +
       corpus[0][0] +
       "</option><option value='english2'>" +
       corpus[0][1] +
@@ -143,8 +149,9 @@ function drop() {
   }
   if (x == 'hindi') {
     contenttable.innerHTML = '';
+    submit.innerHTML = '';
     langcontent.innerHTML =
-      "<center><select id='hin' onchange = 'content(this.id)'><option value='hinselect'>---Select a sentence---</option><option value='hindi1'>" +
+      "<center><select id='hin' onchange = 'showcontent(this.id)'><option value='hinselect'>---Select a sentence---</option><option value='hindi1'>" +
       corpus[1][0] +
       "</option><option value='hindi2'>" +
       corpus[1][1] +
@@ -157,12 +164,14 @@ function drop() {
       '</option></select></center>';
   }
 }
+
 function exp() {
   subheading.innerHTML = 'Experiment';
   document.getElementById('image1').style.display = 'none';
   description.innerHTML =
     "<center><select id='lang' onchange = 'drop()'><option value='select'>---Select Language---</option><option value='english'>English</option><option value='hindi'>Hindi</option></select></center>";
 }
+
 function quiz() {
   description.style.fontSize = '16px';
   subheading.innerHTML = 'Quizzes';
@@ -176,6 +185,7 @@ function proced() {
   description.innerHTML =
     '<b><u>STEP1 :</u></b> Select a language from the drop down menu.<br><b><u>STEP2 :</u></b> Select a sentence from the drop down menu.<br><b><u>STEP3 :</u></b> Select corresponding POS for each word in the sentence and and click the <button>Submit</button> button<br><b><u>OUTPUT :</u></b> The submitted answer will be checked.<br><b><u>STEP4 :</u></b> If incorrect, click on <button>Get Answer</button> button for the correct answer or repeat STEP3.<br><br><br><hr>';
 }
+
 function furth() {
   description.style.fontSize = '16px';
   subheading.innerHTML = 'Further Reading';
