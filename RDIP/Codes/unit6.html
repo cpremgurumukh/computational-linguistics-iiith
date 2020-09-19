@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
-    <script defer src="unit6.js"></script>
-	<script src="../Libraries/require.js"></script>
-    <link rel="stylesheet" type="text/css" href="threestyle.css" />
+    <title>Virtual Labs</title>
+    <script async src="unit6.js"></script>
     <meta
       content="text/html; 
   charset=utf-8"
@@ -12,7 +10,7 @@
     />
   </head>
   <body>
-    <div class="img"><img src="../images/logo.jpg" /></div>
+    <div class="img"><img src="logo.jpg" /></div>
     <div class="head">
       <h2 id="heading">
         <a href="http://cl-iiith.vlabs.ac.in/index.html"
@@ -31,7 +29,7 @@
             >Computational Linguistics Lab</a
           >&nbsp;&nbsp;>&nbsp;
         </li>
-        <li><a href="threeindex.html">Coarse - grained POS Tagging</a></li>
+        <li><a href="unit6.html">Coarse - grained POS Tagging</a></li>
       </ul>
     </div>
     <div class="middle">
@@ -41,7 +39,7 @@
           <button
             class="mainbtns"
             id="introbtn"
-            onclick="return !!(clr() & intro())"
+            onclick="return !!(clrfun() & introfun())"
           >
             <img
               src="../../src/lab/images/introduction.jpg"
@@ -50,42 +48,42 @@
           <button
             class="mainbtns"
             id="theorybtn"
-            onclick="return !!(clr() & theory())"
+            onclick="return !!(clrfun() & theoryfun())"
           >
             <img src="../../src/lab/images/theory.jpg" /><br />THEORY
           </button>
           <button
             class="mainbtns"
             id="objectivebtn"
-            onclick="return !!(clr() & obj())"
+            onclick="return !!(clrfun() & objectivefun())"
           >
             <img src="../../src/lab/images/objective.jpg" /><br />OBJECTIVE
           </button>
           <button
             class="mainbtns"
             id="experimentbtn"
-            onclick="return !!(clr() & exp())"
+            onclick="return !!(clrfun() & experimentfun())"
           >
             <img src="../../src/lab/images/simulation.jpg" /><br />EXPERIMENT
           </button>
           <button
             class="mainbtns"
             id="quizzesbtn"
-            onclick="return !!(clr() & quiz())"
+            onclick="return !!(clrfun() & quizfun())"
           >
             <img src="../../src/lab/images/quizzes.jpg" /><br />QUIZZES
           </button>
           <button
             class="mainbtns"
             id="procedurebtn"
-            onclick="return !!(clr() & proced())"
+            onclick="return !!(clrfun() & procedurefun())"
           >
             <img src="../../src/lab/images/procedure.jpg" /><br />PROCEDURE
           </button>
           <button
             class="mainbtns"
             id="furtherreadbtn"
-            onclick="return !!(clr() & furth())"
+            onclick="return !!(clrfun() & furfun())"
           >
             <img src="../../src/lab/images/readings.jpg" /><br />Further
             Readings
@@ -102,9 +100,11 @@
           <center>
             <img id="image1" src="../../src/lab/exp7/Exp5/a.jpg" alt="Image" />
           </center>
+          <p id="lang"></p>
+          <p id="tab"></p>
           <p id="cont"></p>
-          <p id="conten"></p>
           <p id="sub"></p>
+          <p id="ans"></p>
         </div>
       </div>
     </div>
