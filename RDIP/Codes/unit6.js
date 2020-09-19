@@ -17,11 +17,11 @@ var corpus = [
 
 //----------------Corpus-----------------//
 
-var subheading = document.getElementById('subheading');
-var description = document.getElementById('description');
-var langcontent = document.getElementById('langcontent');
-var contenttable = document.getElementById('contenttable');
-var submit = document.getElementById('submit');
+var subheading = document.getElementById('head');
+var description = document.getElementById('desc');
+var langcontent = document.getElementById('content');
+var contenttable = document.getElementById('contenttab');
+var submit = document.getElementById('sub');
 var x;
 
 function clearfields() {
@@ -32,14 +32,14 @@ function clearfields() {
   submit.innerHTML = '';
 }
 
-function introshow() {
+function intro() {
   description.style.fontSize = '15px';
   subheading.innerHTML = 'Introduction';
   description.innerHTML =
     'Part-of-speech tagging is the process of assigning a part-of-speech (lexical class marker) to each word in a corpus. The basic parts of speech are : Noun, Verb, Determiner, Adjective, Adverb, Preposition (in English), Postposition (in Hindi).<br><br>';
   document.getElementById('image1').style.display = '';
 }
-function theoryshow() {
+function theory() {
   subheading.innerHTML = 'Theory';
   document.getElementById('image1').style.display = 'none';
   var extra =
@@ -48,7 +48,7 @@ function theoryshow() {
     extra +
     '<table id="table1"><tr><th>POS</th><th>FUNCTION</th><th>EXAMPLE</th></tr><tr><td>Verb</td><td>action or state</td><td>take, eat, ??, ????, ???</td></tr><tr><td>Noun</td><td>naming word; person or thing</td><td>table, John, honesty, ???, ??????, ??????</td></tr><tr><td>Pronoun</td><td>replaces noun</td><td>he, she, you, ???, ??</td></tr><tr><td>Determiner</td><td>occurs before noun or noun phrase</td><td>the, many, all</td></tr><tr><td>Adjective</td><td>describes noun</td><td>green, big, ????, ??????, ????</td></tr><tr><td>Adverb</td><td>describes verb</td><td>naturally, slowly,????, ?????</td></tr><tr><td>Preposition</td><td>joins noun to other POS</td><td>in,of, about</td></tr><tr><td>Postposition</td><td>joins noun to other POS</td><td>???, ??, ?? ???</td></tr><tr><td>Conjunction</td><td>joins two words, phrases, sentences</td><td>but, so, ??, ??</td></tr><tr><td>Interjection</td><td>express emotion or surprise followed by exclamation marks</td><td>Hello!, Hurray!, ???!</td></tr></table></ul>';
 }
-function objectiveshow() {
+function objective() {
   description.style.fontSize = '16px';
   subheading.innerHTML = 'Objective';
   document.getElementById('image1').style.display = 'none';
@@ -83,7 +83,7 @@ function createtable(corpusstring) {
     '</table></center>';
 }
 
-function showcontent(id) {
+function content(id) {
   contenttable.innerHTML =
     "<center><br><i><font color='Blue'>Select the POS tag for corresponding words</font></i><br></center>";
   var sentence = '';
@@ -125,7 +125,7 @@ function showcontent(id) {
   }
 }
 
-function dropdownchange() {
+function drop() {
   x = '';
   x = document.getElementById('lang').value;
   if (x == 'select') {
@@ -134,7 +134,7 @@ function dropdownchange() {
   if (x == 'english') {
     contenttable.innerHTML = '';
     langcontent.innerHTML =
-      "<center><select id='eng' onchange = 'showcontent(this.id)'><option value='engselect'>---Select a sentence---</option><option value='english1'>" +
+      "<center><select id='eng' onchange = 'content(this.id)'><option value='engselect'>---Select a sentence---</option><option value='english1'>" +
       corpus[0][0] +
       "</option><option value='english2'>" +
       corpus[0][1] +
@@ -149,7 +149,7 @@ function dropdownchange() {
   if (x == 'hindi') {
     contenttable.innerHTML = '';
     langcontent.innerHTML =
-      "<center><select id='hin' onchange = 'showcontent(this.id)'><option value='hinselect'>---Select a sentence---</option><option value='hindi1'>" +
+      "<center><select id='hin' onchange = 'content(this.id)'><option value='hinselect'>---Select a sentence---</option><option value='hindi1'>" +
       corpus[1][0] +
       "</option><option value='hindi2'>" +
       corpus[1][1] +
@@ -163,28 +163,28 @@ function dropdownchange() {
   }
 }
 
-function experimentshow() {
+function exp() {
   subheading.innerHTML = 'Experiment';
   document.getElementById('image1').style.display = 'none';
   description.innerHTML =
-    "<center><select id='lang' onchange = 'dropdownchange()'><option value='select'>---Select Language---</option><option value='english'>English</option><option value='hindi'>Hindi</option></select></center>";
+    "<center><select id='lang' onchange = 'drop()'><option value='select'>---Select Language---</option><option value='english'>English</option><option value='hindi'>Hindi</option></select></center>";
 }
 
-function quizzesshow() {
+function quiz() {
   description.style.fontSize = '16px';
   subheading.innerHTML = 'Quizzes';
   document.getElementById('image1').style.display = 'none';
   description.innerHTML =
     '<b>Assign POS tag to each word in the following sentences</b><ol><li>Heat water in a large vessel.</li><li>The dog is happy.</li><li>The happy dog.</li><li>Park the car near the park.</li><li>The dog is sitting just at the gate.</li></ol><br><ol><li>???? ???</li><li>???? ???????? ??? ??? ???</li><li>??? ???? ???? ?? ???</li><li>??? ???? ???? ?? ???</li><li>??? ?? ???? ???? ???? ???????</li></ol>';
 }
-function procedureshow() {
+function proced() {
   subheading.innerHTML = 'Procedure';
   document.getElementById('image1').style.display = 'none';
   description.innerHTML =
     '<b><u>STEP1 :</u></b> Select a language from the drop down menu.<br><b><u>STEP2 :</u></b> Select a sentence from the drop down menu.<br><b><u>STEP3 :</u></b> Select corresponding POS for each word in the sentence and and click the <button>Submit</button> button<br><b><u>OUTPUT :</u></b> The submitted answer will be checked.<br><b><u>STEP4 :</u></b> If incorrect, click on <button>Get Answer</button> button for the correct answer or repeat STEP3.<br><br><br><hr>';
 }
 
-function furtherreadingsshow() {
+function furth() {
   description.style.fontSize = '16px';
   subheading.innerHTML = 'Further Reading';
   document.getElementById('image1').style.display = 'none';
