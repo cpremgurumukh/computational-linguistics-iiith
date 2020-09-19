@@ -14,9 +14,6 @@ var corpus = [
     '??? ?? ????? ??? ???',
   ],
 ];
-
-//----------------Corpus-----------------//
-
 var subheading = document.getElementById('head');
 var description = document.getElementById('desc');
 var langcontent = document.getElementById('content');
@@ -82,7 +79,6 @@ function createtable(corpusstring) {
     rows +
     '</table></center>';
 }
-
 function content(id) {
   contenttable.innerHTML =
     "<center><br><i><font color='Blue'>Select the POS tag for corresponding words</font></i><br></center>";
@@ -124,7 +120,6 @@ function content(id) {
     }
   }
 }
-
 function drop() {
   x = '';
   x = document.getElementById('lang').value;
@@ -162,14 +157,12 @@ function drop() {
       '</option></select></center>';
   }
 }
-
 function exp() {
   subheading.innerHTML = 'Experiment';
   document.getElementById('image1').style.display = 'none';
   description.innerHTML =
     "<center><select id='lang' onchange = 'drop()'><option value='select'>---Select Language---</option><option value='english'>English</option><option value='hindi'>Hindi</option></select></center>";
 }
-
 function quiz() {
   description.style.fontSize = '16px';
   subheading.innerHTML = 'Quizzes';
@@ -183,7 +176,6 @@ function proced() {
   description.innerHTML =
     '<b><u>STEP1 :</u></b> Select a language from the drop down menu.<br><b><u>STEP2 :</u></b> Select a sentence from the drop down menu.<br><b><u>STEP3 :</u></b> Select corresponding POS for each word in the sentence and and click the <button>Submit</button> button<br><b><u>OUTPUT :</u></b> The submitted answer will be checked.<br><b><u>STEP4 :</u></b> If incorrect, click on <button>Get Answer</button> button for the correct answer or repeat STEP3.<br><br><br><hr>';
 }
-
 function furth() {
   description.style.fontSize = '16px';
   subheading.innerHTML = 'Further Reading';
