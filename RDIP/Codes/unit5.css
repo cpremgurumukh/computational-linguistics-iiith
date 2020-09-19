@@ -1,0 +1,152 @@
+body {
+  margin: 0px;
+  text-align: center;
+  background-color:SlateBlue;
+}
+.mainlogo {
+  margin: 0 auto;
+}
+#heading {
+  margin-top: 0px;
+  font-family: 'aerial';
+}
+.head {
+  display: inline-block;
+  text-align: left;
+  width: 1025px;
+}
+.head a {
+  padding-left: 23px;
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+}
+.head a:hover {
+  background-color: #145a9c;
+  padding-top: 7px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  padding-right: 23px;
+}
+.head h2 {
+  background-color: #2a92f5;
+  border: 1px solid white;
+  padding: 3px;
+}
+.nav {
+  position: relative;
+  right: 250px;
+}
+.nav ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+.nav ul li a {
+  text-decoration: none;
+  font-family: 'aerial';
+}
+.nav * {
+  color: white;
+}
+
+.nav ul li {
+  display: inline;
+  padding-left: none;
+}
+.middle #mainhead {
+  margin-top: 15px;
+  position: relative;
+  text-align: left;
+  left: 30px;
+  font-size: 50px;
+  font-family: 'aerial';
+  font-weight: lighter;
+}
+.middle {
+  margin: auto;
+  background-color: #d7e8f7;
+  max-width: 1025px;
+}
+#mainhead {
+  padding-top: 15px;
+  margin-bottom: 0px;
+}
+.innermiddle {
+  margin: 0px 25px;
+  background-color: white;
+  min-height: 400px;
+	padding-bottom: 20px;
+
+}
+.innermiddle #innerul {
+  padding-left: 10px;
+  text-align: left;
+  list-style-type: none;
+}
+.innermiddle .mainbtns {
+  font-family: 'aerial';
+  padding: 10px;
+  text-decoration: underline;
+  border: none;
+  font-size: 15px;
+  color: #0e639c;
+  background-color: white;
+}
+.innermiddle .mainbtns:hover {
+  color: white;
+  background-color: #0e639c;
+}
+.innermiddle .mainbtns:focus {
+  color: white;
+  background-color: #0e639c;
+}
+.innermiddle .content {
+  margin: 0px 20px;
+  text-align: left;
+  font-family: 'aerial';
+}
+
+.innermiddle .content p {
+  color: #383838;
+  font-size: 16px;
+}
+.innermiddle .content #subheading {
+  color: black;
+  font-size: 23px;
+}
+.innermiddle .content #description {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.innermiddle .content #image1 {
+  height: 150px;
+  width: 400px;
+}
+::selection {
+  color: white;
+  background: #fa619c;
+}
+
+.innermiddle .content #corpus {
+  font-size: 16px;
+}
+
+.innermiddle .content #corpuscontent {
+  text-align: center;
+}
+
+.innermiddle .content table,
+tr,
+td {
+  border-collapse: collapse;
+  border: 1px solid darkgray;
+  padding: 8px 10px;
+}
+.innermiddle .content #submit {
+  font-size: 16px;
+}
+}
+.innermiddle .content #answer{
+   font-family: 'aerial';
+}
